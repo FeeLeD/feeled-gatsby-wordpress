@@ -21,8 +21,6 @@ const BlogIndex = ({
 }) => {
   const posts = data.allWpPost.nodes;
 
-  console.log(posts);
-
   if (!posts.length) {
     return (
       <Layout isHomePage>

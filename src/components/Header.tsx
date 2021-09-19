@@ -23,7 +23,7 @@ const Header: FC = () => {
       <Image
         w="100px"
         h="100px"
-        src="http://feeled.ru/wp-content/uploads/2021/09/flgso.png"
+        src="/flgso.svg"
       />
 
       <Stack spacing="4px">

@@ -31,8 +31,6 @@ const Footer: FC = () => {
     }
   `);
 
-  console.log(vk);
-
   return (
     <Box w="100%" h="230px" bg="#35363A" pt="72px">
       <HStack w="1150px" mx="auto" justify="space-between">
