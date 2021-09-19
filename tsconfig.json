@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["dom", "es2015", "es2017"],
+    "noEmitOnError": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./src/**/*"]
+}
+
+/* {
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "ESNext",
+    "lib": ["DOM"],
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "~components/*": ["site/src/components/*"],
+      "~state/*": ["site/src/state/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noEmitOnError": true,
+  }
+} */

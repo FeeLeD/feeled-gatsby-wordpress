@@ -1,9 +1,7 @@
-// custom typefaces
-import "typeface-montserrat"
-import "typeface-merriweather"
+import React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./src/chakra";
 
-// normalize CSS across browsers
-import "./src/css/normalize.css"
-
-// custom CSS styles
-import "./src/css/style.css"
+export const wrapRootElement = ({ element }) => {
+  return <ChakraProvider theme={theme}>{element}</ChakraProvider>;
+};
