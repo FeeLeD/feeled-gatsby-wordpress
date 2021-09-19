@@ -35,7 +35,7 @@ const Footer: FC = () => {
     <Box w="100%" h="230px" bg="#35363A" pt="72px">
       <HStack w="1150px" mx="auto" justify="space-between">
         <HStack spacing="32px">
-          <Image src="http://feeled.ru/wp-content/uploads/2021/09/snowflake.png" />
+          <Image src="/snowflake.svg" />
 
           <Stack w="50%" color="#FAFAFA">
             <Text as="b" children={title} />
