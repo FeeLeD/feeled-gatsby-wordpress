@@ -22,6 +22,8 @@ exports.createPages = async gatsbyUtilities => {
     return;
   }
 
+  await createCalendarPage({ gatsbyUtilities });
+
   await createPages({ pages, gatsbyUtilities });
 
   // If there are posts, create pages for them
@@ -150,6 +152,15 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
   );
 }
 
+async function createCalendarPage({ gatsbyUtilities }) {
+  return await gatsbyUtilities.actions.createPage({
+    path: "/events",
+
+    // use the blog post archive template as the page component
+    component: path.resolve(`./src/templates/events.tsx`),
+  });
+}
+
 /**
  * This function queries Gatsby's GraphQL server and asks for
  * All WordPress blog posts. If there are any GraphQL error it throws an error
@@ -210,7 +221,7 @@ async function getPosts({ graphql, reporter }) {
 
   if (graphqlResult.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
+      `There was an error loading posts`,
       graphqlResult.errors
     );
     return;
