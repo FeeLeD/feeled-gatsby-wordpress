@@ -21,7 +21,7 @@ type Props = {
 const HeaderMenuItem: FC<Props> = ({ title, items = [] }) => {
   return (
     <Box>
-      <Menu>
+      <Menu >
         {({ isOpen }) => (
           <>
             <MenuButton

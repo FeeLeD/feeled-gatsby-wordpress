@@ -1,56 +1,23 @@
 import React, { FC } from "react";
 import { graphql } from "gatsby";
-import { Box, Heading, Stack, Text } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 import Layout from "../components/Layout";
+import { WPEvent } from "../components/Events/types";
+import EventsList from "../components/Events/EventsList";
 
 type Events = {
   allWpEvent: {
-    events: Array<{
-      id: string;
-      title: string;
-      content: string;
-      date: string;
-      link: string;
-      venue: {
-        address: string;
-        city: string;
-      };
-      tags: {
-        competitionTypes: Array<{
-          name: string;
-        }>;
-      };
-      eventsCategories: {
-        disciplines: Array<{
-          name: string;
-          wpParent: {
-            gender: Array<{ name: string }>;
-          };
-        }>;
-      };
-    }>;
+    nodes: WPEvent[];
   };
 };
 
-const EventsPage: FC<{ data: Events }> = ({ data: { allWpEvent } }) => {
+const EventsPage: FC<{ data: Events }> = ({ data }) => {
   return (
     <Layout>
-      <Stack spacing="18px">
+      <Stack spacing="24px">
         <Heading fontSize="h1">Календарь</Heading>
 
-        {allWpEvent.events.map(event => (
-          <Box key={event.id} bg="white" p="24px" borderRadius="8px">
-            {/* <Text>{event.tags.competitionTypes[0].name}</Text> */}
-            {/* <Text>{event.date}</Text> */}
-            <Text>
-              {event.venue?.address}, {event.venue?.city}
-            </Text>
-            {/* <Text>{event.content}</Text> */}
-            {/* {event.eventsCategories.disciplines.map((d, i) => (
-              <Text key={i}>{d.name}</Text>
-            ))} */}
-          </Box>
-        ))}
+        <EventsList events={data.allWpEvent.nodes} />
       </Stack>
     </Layout>
   );
@@ -60,29 +27,31 @@ export default EventsPage;
 
 export const query = graphql`
   query WpEvents {
-    allWpEvent {
-      events: nodes {
+    allWpEvent(sort: { fields: date, order: ASC }) {
+      nodes {
         id
         title
         content
         date
+        endDate
         link
         eventsCategories {
-          disciplines: nodes {
+          nodes {
             name
             wpParent {
-              gender: node {
+              node {
                 name
               }
             }
           }
         }
         tags {
-          competitionTypes: nodes {
+          nodes {
             name
           }
         }
         venue {
+          title
           address
           city
         }

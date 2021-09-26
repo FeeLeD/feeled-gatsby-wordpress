@@ -27,7 +27,9 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // the only required plugin option for WordPress is the GraphQL url.
-        url: process.env.WPGRAPHQL_URL || `http://u1478554.isp.regruhosting.ru/graphql`,
+        url:
+          process.env.WPGRAPHQL_URL ||
+          `http://u1478554.isp.regruhosting.ru/graphql`,
       },
     },
 
@@ -52,13 +54,12 @@ module.exports = {
      */
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-
     {
       // See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter WordPress Blog`,
-        short_name: `GatsbyJS & WP`,
+        name: `Федерация лыжных гонок Свердловской области`,
+        short_name: `ФЛГСО`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

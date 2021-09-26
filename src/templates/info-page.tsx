@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { graphql } from "gatsby";
 import { Box, Heading, Stack } from "@chakra-ui/react";
 import Layout from "../components/Layout";
+import parse from "html-react-parser";
 
 const InfoPage: FC<{ data: { page: { title: string; content: string } } }> = ({
   data: { page },
@@ -12,7 +13,7 @@ const InfoPage: FC<{ data: { page: { title: string; content: string } } }> = ({
         <Heading fontSize="h1">{page.title}</Heading>
 
         <Box bg="white" p="32px" borderRadius="8px">
-          {page.content}
+          {parse(page.content)}
         </Box>
       </Stack>
     </Layout>

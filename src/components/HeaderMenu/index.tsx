@@ -40,8 +40,6 @@ const HeaderMenu: FC = () => {
     }
   `);
 
-  console.log(menus);
-
   return (
     <HStack p="18px" borderRadius="8px" bg="white" justify="space-around">
       <Link tabIndex={-1} href="/" _hover={{ textDecor: "none" }}>
