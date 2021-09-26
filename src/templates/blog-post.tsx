@@ -7,6 +7,8 @@ import Bio from "../components/bio";
 import Layout from "../components/Layout";
 import Seo from "../components/seo";
 import { Box, Heading, Stack, Text } from "@chakra-ui/react";
+import dayjs from "dayjs";
+import { dateHandler } from "../components/Events/dates";
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {

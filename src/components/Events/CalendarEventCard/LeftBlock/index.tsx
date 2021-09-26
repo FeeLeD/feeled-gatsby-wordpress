@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import dayjs from "dayjs";
-import { dateHandler } from "../dates";
+import { dateHandler } from "../../dates";
 import { NormalizedEvent_Venue } from "../../types";
 import { Stack } from "@chakra-ui/react";
 import CompetitionTypeTag from "./CompetitionTypeTag";

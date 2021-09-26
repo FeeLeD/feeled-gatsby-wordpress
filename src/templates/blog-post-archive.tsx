@@ -14,12 +14,16 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { dateHandler } from "../components/Events/dates";
+import dayjs from "dayjs";
+import Post from "../components/Posts/Post";
 
 const BlogIndex = ({
   data,
   pageContext: { nextPagePath, previousPagePath },
 }) => {
   const posts = data.allWpPost.nodes;
+  console.log(data.allWpPost);
 
   if (!posts.length) {
     return (
@@ -38,43 +42,27 @@ const BlogIndex = ({
     <Layout>
       <Seo title="All posts" />
 
-      <Grid gridTemplateColumns="325px auto" gridGap="24px">
-        <Box bg="white" borderRadius="8px" h="500px" />
-
+      <Grid gridTemplateColumns="auto 325px" gridGap="24px">
         <Stack spacing="24px">
           <Stack spacing="18px">
             <Heading fontSize="h1">Новости</Heading>
 
             {posts.map((post, i) => (
-              <Stack
+              <Post
                 key={i}
-                bg="white"
-                p="32px"
-                borderRadius="8px"
-                spacing="24px"
-              >
-                <HStack spacing="20px">
-                  <Image w="40px" h="40px" src="flgso.svg" />
-                  <Text fontSize="md" opacity={0.5} children={post.date} />
-                </HStack>
-
-                <Heading fontSize="h4" children={post.title} />
-
-                <Box
-                  fontSize="normal"
-                  wordBreak="break-word"
-                  children={parse(post.content)}
-                />
-                {/* if we have a featured image for this post let's display it */}
-                {/* {featuredImage?.fluid && (
-              <Image
-                fluid={featuredImage.fluid}
-                alt={featuredImage.alt}
-                style={{ marginBottom: 50 }}
+                date={post.date}
+                title={post.title}
+                content={post.content}
               />
-            )} */}
-              </Stack>
             ))}
+          </Stack>
+        </Stack>
+
+        <Stack spacing="24px">
+          <Stack spacing="18px">
+            <Heading fontSize="h1" opacity={0.4}>В разработке</Heading>
+
+            <Box bg="white" borderRadius="8px" h="500px" />
           </Stack>
         </Stack>
       </Grid>
@@ -122,7 +110,6 @@ export const pageQuery = graphql`
         uri
         date(formatString: "MMMM DD, YYYY")
         title
-        excerpt
         content
       }
     }
