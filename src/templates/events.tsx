@@ -4,6 +4,7 @@ import { Heading, Stack } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import { WPEvent } from "../components/Events/types";
 import EventsList from "../components/Events/EventsList";
+import Seo from "../components/seo";
 
 type Events = {
   allWpEvent: {
@@ -14,6 +15,8 @@ type Events = {
 const EventsPage: FC<{ data: Events }> = ({ data }) => {
   return (
     <Layout>
+      <Seo title="Календарь" />
+
       <Stack spacing="24px">
         <Heading fontSize="h1">Календарь</Heading>
 

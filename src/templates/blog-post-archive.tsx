@@ -40,9 +40,9 @@ const BlogIndex = ({
 
   return (
     <Layout>
-      <Seo title="All posts" />
+      <Seo title="Новости" />
 
-      <Grid gridTemplateColumns="auto 325px" gridGap="24px">
+      <Grid gridTemplateColumns="800px auto" gridGap="24px">
         <Stack spacing="24px">
           <Stack spacing="18px">
             <Heading fontSize="h1">Новости</Heading>
@@ -60,7 +60,9 @@ const BlogIndex = ({
 
         <Stack spacing="24px">
           <Stack spacing="18px">
-            <Heading fontSize="h1" opacity={0.4}>В разработке</Heading>
+            <Heading fontSize="h1" opacity={0.4}>
+              В разработке
+            </Heading>
 
             <Box bg="white" borderRadius="8px" h="500px" />
           </Stack>
